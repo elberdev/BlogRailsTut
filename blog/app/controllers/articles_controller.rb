@@ -8,13 +8,20 @@ class ArticlesController < ApplicationController
 	end
 
 	def new
+		@article = Article.new
 	end
 	
 	def create
 		@article = Article.new(article_params)
 
-		@article.save
-		redirect_to @article
+		# if article passes validation, redirect to new article
+		if @article.save
+			redirect_to @article
+		
+		# else send user back to new article page
+		else
+			render 'new'
+		end
 	end
 
 	private
