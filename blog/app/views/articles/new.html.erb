@@ -2,14 +2,14 @@
 
 <%= form_for :article, url: articles_path  do |f| %>
 
-	# if there were any errors creating a new article...
+	<!-- if there were any errors -->
 	<% if @article.errors.any? %>
 		<div id="error_explanation">
 			<h2>
 				<%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:
 			</h2>
 			<ul>
-				# show all the error messages
+				<!-- show all the error messages -->
 				<% @article.errors.full_messages.each do |msg| %>
 					<li><%= msg %></li>
 				<% end %>
